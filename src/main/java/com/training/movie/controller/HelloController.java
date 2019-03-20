@@ -1,4 +1,4 @@
-package com.training.movie;
+package com.training.movie.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
