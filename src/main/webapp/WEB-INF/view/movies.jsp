@@ -7,14 +7,14 @@
             <th>Director</th>
             <th>Description</th>
         </tr>
-        <tr>
-            <c:forEach var="movie" items="${movies}">
+        <c:forEach var="movie" items="${movies}">
+            <tr>
                 <td>${movie.title}</td>
                 <td>${movie.year}</td>
                 <td>${movie.director}</td>
                 <td>${movie.description}</td>
-            </c:forEach>
-        </tr>
+            </tr>
+        </c:forEach>
     </table>
     <p align="center"><input type="button" value="Add movie" onclick="window.location.href='/movies/showAddMovieForm'; return false;"/></p>
 </body>

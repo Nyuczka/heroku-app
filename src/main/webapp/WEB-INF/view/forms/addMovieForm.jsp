@@ -11,7 +11,7 @@
             </tr>
             <tr>
                 <td><label>Year: </label></td>
-                <td><form:input path="year"/></td>
+                <td><form:input path="year" type="number"/></td>
             </tr>
             <tr>
                 <td><label>Director: </label></td>
