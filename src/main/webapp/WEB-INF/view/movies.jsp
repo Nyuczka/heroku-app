@@ -16,5 +16,5 @@
             </c:forEach>
         </tr>
     </table>
-    <p align="center"><input type="button" value="Add movie" onclick="window.location.href='/showAddMovieForm'; return false;"/></p>
+    <p align="center"><input type="button" value="Add movie" onclick="window.location.href='/movies/showAddMovieForm'; return false;"/></p>
 </body>
