@@ -16,7 +16,10 @@ public class Movie {
     private String title;
 
     @Column
-    private String rating;
+    private Integer year;
+
+    @Column
+    private String director;
 
     @Column
     private String description;
@@ -30,12 +33,20 @@ public class Movie {
         this.title = title;
     }
 
-    public String getRating() {
-        return rating;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
     }
 
     public String getDescription() {
