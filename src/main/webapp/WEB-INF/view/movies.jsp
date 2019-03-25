@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
-    <table border="1">
+    <table border="1" align="center">
         <tr>
             <th>Title</th>
             <th>Year</th>
@@ -16,4 +16,5 @@
             </c:forEach>
         </tr>
     </table>
+    <p align="center"><input type="button" value="Add movie" onclick="window.location.href='/showAddMovieForm'; return false;"/></p>
 </body>

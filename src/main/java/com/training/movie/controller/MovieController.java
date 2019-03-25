@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -26,5 +28,11 @@ public class MovieController {
         Movie movie = new Movie();
         model.addAttribute("movie", movie);
         return "forms/addMovieForm";
+    }
+
+    @PostMapping("/saveMovie")
+    public String saveMovie(@ModelAttribute("movie") Movie movie){
+        movieRepository.save(movie);
+        return "redirect:/movies";
     }
 }
