@@ -23,6 +23,14 @@ public class Movie {
     private String description;
 
 
+    public Long getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(Long movieId) {
+        this.movieId = movieId;
+    }
+
     public String getTitle() {
         return title;
     }
