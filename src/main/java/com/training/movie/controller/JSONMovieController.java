@@ -2,7 +2,6 @@ package com.training.movie.controller;
 
 import com.training.movie.model.Movie;
 import com.training.movie.repository.MovieRepository;
-import com.training.movie.service.ReviewRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,9 +13,6 @@ public class JSONMovieController {
 
     @Autowired
     private MovieRepository movieRepository;
-
-    @Autowired
-    ReviewRestService reviewRestService;
 
     @GetMapping()
     public Iterable<Movie> getMovies(){
