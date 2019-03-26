@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/json")
+@RestController
 public class JSONMovieController {
 
     @Autowired
     private MovieRepository movieRepository;
 
-    @GetMapping("/movies")
+    @GetMapping("/json/movies")
     public Iterable<Movie> getMovies(){
         return movieRepository.findAll();
     }
