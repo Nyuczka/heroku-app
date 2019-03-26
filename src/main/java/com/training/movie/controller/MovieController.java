@@ -2,6 +2,7 @@ package com.training.movie.controller;
 
 import com.training.movie.model.Movie;
 import com.training.movie.repository.MovieRepository;
+import com.training.movie.service.ReviewRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,9 @@ public class MovieController {
     @Autowired
     private MovieRepository movieRepository;
 
+    @Autowired
+    private ReviewRestService reviewRestService;
+
     @GetMapping
     public String movies(final Model model){
         model.addAttribute("movies",movieRepository.findAll());
@@ -26,6 +30,7 @@ public class MovieController {
     public String getDetailsForMovie(@PathVariable final Long movieId, final Model model){
         Optional<Movie> movieById = movieRepository.findById(movieId);
         movieById.ifPresent(movie -> model.addAttribute("movie", movie));
+        model.addAttribute("reviews",reviewRestService.getReviewsForMovieId(movieId));
         return "movieDetails";
     }
 

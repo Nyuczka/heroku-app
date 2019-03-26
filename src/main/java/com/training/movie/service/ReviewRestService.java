@@ -1,6 +1,7 @@
 package com.training.movie.service;
 
 import com.training.movie.model.Review;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -19,10 +20,18 @@ public class ReviewRestService {
     private String url;
 
 
-    public List<Review> getResponse(){
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.setRequestFactory(new HttpComponentsAsyncClientHttpRequestFactory());
+    @Autowired
+    private RestTemplate restTemplate;
+
+    public List<Review> getAllReviews(){
         ResponseEntity<List<Review>> response = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<List<Review>>() {
+        });
+        return response.getBody();
+    }
+
+    public List<Review> getReviewsForMovieId(Long movieId){
+        String newUrl = url + "/" + movieId;
+        ResponseEntity<List<Review>> response = restTemplate.exchange(newUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<Review>>() {
         });
         return response.getBody();
     }
