@@ -1,6 +1,7 @@
 package com.training.movie.controller;
 
 import com.training.movie.model.Movie;
+import com.training.movie.model.MovieReview;
 import com.training.movie.model.Review;
 import com.training.movie.repository.MovieRepository;
 import com.training.movie.service.ReviewRestService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,18 +19,28 @@ import java.util.Optional;
 @RequestMapping("/movies")
 public class MovieController {
 
-    @Autowired
     private MovieRepository movieRepository;
 
-    @Autowired
     private ReviewRestService reviewRestService;
 
-    @Autowired
     private ReviewService reviewService;
+
+    @Autowired
+    public MovieController(MovieRepository movieRepository, ReviewRestService reviewRestService, ReviewService reviewService){
+        this.movieRepository = movieRepository;
+        this.reviewRestService = reviewRestService;
+        this.reviewService = reviewService;
+    }
 
     @GetMapping
     public String movies(final Model model){
-        model.addAttribute("movies",movieRepository.findAll());
+        Iterable<Movie> movies = movieRepository.findAll();
+        List<MovieReview> movieReviews = new ArrayList<>();
+        for(Movie movie: movies){
+            List<Review> reviewsForMovieId = reviewRestService.getReviewsForMovieId(movie.getMovieId());
+            movieReviews.add(new MovieReview(movie,reviewService.getMean(reviewsForMovieId)));
+        }
+        model.addAttribute("movieWithMeans",movieReviews);
         return "movies";
     }
 

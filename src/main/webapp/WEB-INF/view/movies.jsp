@@ -7,15 +7,17 @@
             <th>Year</th>
             <th>Director</th>
             <th>Description</th>
+            <th>Average Review</th>
             <th>Action</th>
         </tr>
-        <c:forEach var="movie" items="${movies}">
-            <c:url var="detailsLink" value="/movies/${movie.movieId}"/>
+        <c:forEach var="movieWithMean" items="${movieWithMeans}">
+            <c:url var="detailsLink" value="/movies/${movieWithMean.movie.movieId}"/>
             <tr>
-                <td>${movie.title}</td>
-                <td>${movie.year}</td>
-                <td>${movie.director}</td>
-                <td>${movie.description}</td>
+                <td>${movieWithMean.movie.title}</td>
+                <td>${movieWithMean.movie.year}</td>
+                <td>${movieWithMean.movie.director}</td>
+                <td>${movieWithMean.movie.description}</td>
+                <td>${movieWithMean.mean}</td>
                 <td><a href="${detailsLink}">Show details</a></td>
             </tr>
         </c:forEach>
