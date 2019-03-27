@@ -4,7 +4,9 @@
     <c:choose>
         <c:when test="${not empty movie}">
             Title ${movie.title} <br/>
-            Mean ${mean}<br/>
+            <c:if test="${not empty mean}">
+                Mean ${mean}<br/>
+            </c:if>
             <c:forEach items="${reviews}" var="review">
                 ${review.rating}
                 ${review.description}
