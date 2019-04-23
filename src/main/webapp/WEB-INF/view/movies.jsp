@@ -1,7 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+</head>
 <body>
     <a href="/">Back to Homepage</a>
-    <table border="1" align="center">
+    <table class="movies-table">
         <tr>
             <th>Title</th>
             <th>Year</th>

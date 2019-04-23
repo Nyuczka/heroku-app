@@ -1,0 +1,38 @@
+.homepage-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 32px;
+    text-align: center;
+    color: blueviolet;
+
+}
+
+.homepage-button{
+    padding: 50px 25px;
+    background-color: ghostwhite;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 50%;
+}
+
+#button-center{
+    text-align: center;
+}
+
+.movies-table{
+    margin: 20px;
+    text-align: center;
+    border-collapse: collapse;
+    border: 3px darkslateblue;
+}
+
+.movies-table tr, td{
+    padding: 6px 4px;
+    border: 1px solid darkslateblue;
+}
+
+.movies-table th{
+    font-family: 'Pacifico', cursive;
+    border: 1px solid darkslateblue;
+    font-weight: bold;
+}
